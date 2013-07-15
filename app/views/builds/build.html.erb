@@ -1,0 +1,49 @@
+<% if(!@build.nil?) %>
+
+<h2>Build #<%= @build.id %> - <%= @build.version %> - <%= @build.target %></h2>
+
+<table class="doozer-simple-table">
+  <tr><td>ID</td><td><%= @build.id %></td></tr>
+  <tr><td>Revision</td><td><%= @build.revision %></td></tr>
+  <tr><td>Target</td><td><%= @build.target %></td></tr>
+  <tr><td>Version</td><td><%= @build.version %></td></tr>
+  <tr><td>Branch</td><td><%= @build.branch %></td></tr>
+  <tr><td>Type</td><td><%= @build.type %></td></tr>
+  <tr><td>Status</td><td><%= @build.status %></td></tr>
+  <tr><td>Build Agent</td><td><%= @build.agent %></td></tr>
+  <% if @build.respond_to?("progress_text") %>
+  <tr><td>Building progress</td><td><%= @build.progress_text %></td></tr>
+  <% end %>
+</table>
+<p/>
+<h2>Artifacts</h2>
+
+<table class="list doozer-list">
+  <thead><tr>
+  <th>Name</th>
+  <th>Type</th>
+  <th>Size</th>
+  <th>SHA-1</th>
+  <th>MD5</th>
+  <th>Download count</th>
+  </tr></thead>
+  <tbody>
+
+<% @build.artifacts.each do |a| %>
+  <tr class="<%= cycle 'odd', 'even' %>">
+    <td><%= link_to(a.name, a.url, :rel => 'nofollow') %></td>
+    <td><%= a.type %></td>
+    <td><%= a.size %></td>
+    <td><%= a.sha1 %></td>
+    <td><%= a.md5 %></td>
+    <td><%= a.dlcount %></td>
+  </tr>
+<% end %>
+    </tbody>
+</table>
+
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'doozer', :plugin => 'doozer' %>
+<% end %>
+
+<% end %>

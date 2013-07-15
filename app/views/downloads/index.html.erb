@@ -1,0 +1,28 @@
+<% if(@releases.any?) %>
+
+<% @releases.each do |track| %>
+
+  <h1><%= track.name %></h1>
+  <p><%= track.description %></p>
+
+  <% track.targets.each do |target| %>
+    <div class="doozer-download-target">
+      <h2><%= target.title %></h2>
+      <table>
+        <% target.artifacts.each do |a| %>
+        <tr>
+	  <td><%= link_to(a.name, a.url) %></td>
+	  <td><%= number_to_human_size(a.size) %></td>
+	</tr>
+	<% end %>
+      </table>
+    </div>
+  <% end %>
+
+<% end %>
+
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'doozer', :plugin => 'doozer' %>
+<% end %>
+
+<% end %>

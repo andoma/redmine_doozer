@@ -1,0 +1,35 @@
+tr.buildstatus-failed {color: #d11}
+tr.buildstatus-done {color: #181}
+tr.buildstatus-pending {color: #880}
+tr.buildstatus-building {color: #838}
+
+table.doozer-simple-table {
+    border: 1px;
+    border-spacing: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+}
+
+table.doozer-simple-table td {
+    border: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-style: solid;
+    border-color: black;
+}
+
+table.doozer-list th {
+    text-align: left;
+}
+
+div.doozer-download-target {
+    background-color: #eee;
+    margin-left: 50px;
+    padding-left: 50px;
+    border: 1px;
+    border-style: solid;
+    border-color: #000;
+    margin-right: 50px;
+    margin-bottom: 5px;
+}
