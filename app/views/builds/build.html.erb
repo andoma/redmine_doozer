@@ -25,7 +25,8 @@
   <th>Size</th>
   <th>SHA-1</th>
   <th>MD5</th>
-  <th>Download count</th>
+  <th>Downloads</th>
+  <th>Patches downloaded</th>
   </tr></thead>
   <tbody>
 
@@ -37,13 +38,14 @@
     <td><%= a.sha1 %></td>
     <td><%= a.md5 %></td>
     <td><%= a.dlcount %></td>
+    <td><%= a.patchcount %></td>
   </tr>
 <% end %>
     </tbody>
 </table>
 
 <% content_for :header_tags do %>
-    <%= stylesheet_link_tag 'doozer', :plugin => 'doozer' %>
+    <%= stylesheet_link_tag 'doozer', :plugin => 'redmine_doozer' %>
 <% end %>
 
 <% end %>

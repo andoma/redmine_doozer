@@ -40,5 +40,4 @@ class BuildsController < ApplicationController
       flash[:error] = 'Buildsystem is currently offline, please come back later'
     end
   end
- 
 end

@@ -2,7 +2,7 @@
 
 require 'doozer_hook_listener'
 
-Redmine::Plugin.register :doozer do
+Redmine::Plugin.register :redmine_doozer do
   name 'Doozer plugin'
   author 'Andreas Öman'
   description 'Integration of doozer autobuild system with redmine'
@@ -10,7 +10,7 @@ Redmine::Plugin.register :doozer do
   url 'https://github.com/andoma/doozer2'
   author_url 'http://www.lonelycoder.com/'
 
-  project_module :doozer do
+  project_module :redmine_doozer do
     permission :view_builds, :builds => [:index, :build]
     permission :view_downloads, :downloads => :index
   end
@@ -29,6 +29,6 @@ Redmine::Plugin.register :doozer do
        :after => :overview,
        :param => :project_id)
 
-  settings :default => {'server_default' => 'http://localhost:9001/'}, :partial => 'settings/doozer_settings'
+  settings :default => {'server_default' => 'http://localhost:9001'}, :partial => 'settings/doozer_settings'
 
 end

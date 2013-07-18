@@ -10,16 +10,14 @@ class DownloadsController < ApplicationController
   end
 
   def index
-
     begin
       id = @project.identifier
       @releases = Release.find(:all,
                                :params => {
                                  :project => id,
                                })
-    rescue => msg
-      flash[:error] = 'Buildsystem is currently offline, please come back later -- ' + msg
-      @releases = []
+    rescue
+      flash[:error] = 'Buildsystem is currently offline, please come back later'
     end
   end
 end

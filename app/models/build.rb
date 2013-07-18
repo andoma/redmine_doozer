@@ -1,6 +1,6 @@
 
 class Build < ActiveResource::Base
-  self.site = Setting.plugin_doozer['server_default'] + '/projects/:project/'
+  self.site = Setting.plugin_redmine_doozer['server_default'] + '/projects/:project/'
 
   def self.count(params)
     path = "#{prefix(params)}#{collection_name}.count#{query_string(params)}"
