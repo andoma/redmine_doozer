@@ -14,7 +14,7 @@ Redmine::Plugin.register :doozer do
     permission :view_builds, :builds => [:index, :build]
     permission :view_downloads, :downloads => :index
   end
-  
+
   menu(:project_menu, :builds, {
          :controller => 'builds',
          :action => 'index' },
@@ -29,6 +29,6 @@ Redmine::Plugin.register :doozer do
        :after => :overview,
        :param => :project_id)
 
-  settings :partial => 'settings/doozer_settings'
+  settings :default => {'server_default' => 'http://localhost:9001/'}, :partial => 'settings/doozer_settings'
 
 end
