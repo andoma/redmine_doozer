@@ -12,7 +12,7 @@ Redmine::Plugin.register :redmine_doozer do
 
   project_module :redmine_doozer do
     permission :view_builds, :builds => [:index, :build]
-    permission :view_downloads, :downloads => :index
+    permission :view_downloads, :downloads => [:index, :track]
   end
 
   menu(:project_menu, :builds, {

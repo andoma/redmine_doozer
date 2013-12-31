@@ -1,0 +1,35 @@
+
+<div style="padding-left: 50px; padding-top: 25px">
+
+<div>
+<% @tracks.each do |track| %>
+<span style="margin-right: 20px">
+<% if track[:active] %>
+<strong><%= track[:title] %></strong>
+<% else %>
+<%= link_to(track[:title], {:controller => 'downloads', :project_id => @project, :track => track[:id], :action => 'track'}) %>
+<% end %>
+</span>
+<% end %>
+</div>
+
+<p><strong><%= @track.description %></strong></p>
+
+<% @track.targets.each do |target| %>
+  <h3><%= target.title %></h3>
+  <table style="width: 50%; margin-left: 100px; margin-bottom: 30px">
+    <% target.artifacts.each do |a| %>
+    <tr>
+      <td width="33%" class="icon icon-package"><%= link_to(a.name, a.url) %></td>
+      <td width="33%"><%= a.title %></td>
+      <td width="33%"><%= number_to_human_size(a.size) %></td>
+    </tr>
+    <% end %>
+  </table>
+<% end %>
+
+</div>
+
+<% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'doozer', :plugin => 'redmine_doozer' %>
+<% end %>
